@@ -6,6 +6,8 @@
     <title>AyurDiet Pro - Ayurvedic Diet Management System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="time.js" defer></script>
+    
     <style>
         :root {
             --primary: #2c6e49;
@@ -30,6 +32,27 @@
             overflow-x: hidden;
         }
 
+        .popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85); /* semi-transparent background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.popup-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12x;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+iframe{
+    background: black;
+}
         /* Sidebar Styles */
         .sidebar {
             position: fixed;
@@ -723,13 +746,16 @@
     </style>
 </head>
 <body>
+    <div id="fullscreen-popup" class="popup">
+  <img src="https://uploads.onecompiler.io/43bfq86cy/43xnkx4p2/1000087360.jpg" alt="Landing Image" class="popup-image" />
+    </div>
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
                 <i class="fas fa-leaf"></i>
             </div>
-            <div class="sidebar-title">AyurDiet Pro</div>
+            <div class="sidebar-title">NutriVedha</div>
         </div>
         
         <ul class="sidebar-menu">
@@ -756,7 +782,7 @@
     <div class="main-content" id="main-content">
         <!-- Header -->
         <div class="header">
-            <button class="menu-toggle" id="menu-toggle">
+                        <button class="menu-toggle" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="header-title">Ayurvedic Diet Management System</div>
@@ -955,7 +981,7 @@
                     </button>
                 </div>
 
-                <div class="table-container">
+               <div class="table-container">
                     <div class="table-header">
                         <div class="card-title">Patients List</div>
                         <div>
@@ -1239,7 +1265,7 @@
                                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">
                                 <div>
                                     <button class="btn btn-secondary">Change Photo</button>
-                                    <p style="margin-top: 10px; font-size: 14px; color: #6c757d;">JPG, GIF or PNG. Max size of 5MB</p>
+                                                                  <p style="margin-top: 10px; font-size: 14px; color: #6c757d;">JPG, GIF or PNG. Max size of 5MB</p>
                                 </div>
                             </div>
                             
@@ -1375,7 +1401,7 @@ Certified Nutritionist</textarea>
                                 <label>Email Notifications</label>
                                 <div style="display: flex; flex-direction: column; gap: 10px;">
                                     <label style="display: flex; align-items: center;">
-                                        <input type="checkbox" checked style="margin-right: 10px;"> Patient Appointments
+                                                                     <input type="checkbox" checked style="margin-right: 10px;"> Patient Appointments
                                     </label>
                                     <label style="display: flex; align-items: center;">
                                         <input type="checkbox" checked style="margin-right: 10px;"> Diet Plan Reminders
@@ -1493,6 +1519,18 @@ Certified Nutritionist</textarea>
     </div>
 
     <script>
+        // logo code popup msg
+        
+        window.addEventListener('DOMContentLoaded', function() {
+  const popup = document.getElementById('fullscreen-popup');
+  if (popup) {
+    popup.style.display = 'flex';
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 2000);
+  }
+});
+        
         // Static Datasets
         const patients = [
             { id: 'P001', name: 'Anita Sharma', age: 34, gender: 'Female', contact: '+91 9876543210', lastVisit: '15 Jun 2023', status: 'Active' },
@@ -1836,7 +1874,7 @@ Certified Nutritionist</textarea>
                     <td>${doctor.contact}</td>
                     <td><span class="status ${statusClass}">${doctor.status}</span></td>
                     <td>
-                        <button class="btn btn-sm" style="background: none; border: none; color: var(--primary);">
+                                               <button class="btn btn-sm" style="background: none; border: none; color: var(--primary);">
                             <i class="fas fa-eye"></i>
                         </button>
                     </td>
@@ -1973,4 +2011,7 @@ Certified Nutritionist</textarea>
         });
     </script>
 </body>
-</html>
+</html> 
+                
+
+
